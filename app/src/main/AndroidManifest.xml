@@ -27,7 +27,11 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBFHDOs51wx2iW9yhcBqGeu88Vxqmjsnl8" />
     </application>
 
 </manifest>
