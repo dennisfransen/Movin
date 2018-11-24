@@ -26,7 +26,6 @@ public class SearchFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static final String TAG = "SearchFragment";
     private GeoDataClient mGeoDataClient;
     private EditText mSearchField;
     private ListView mListView;
