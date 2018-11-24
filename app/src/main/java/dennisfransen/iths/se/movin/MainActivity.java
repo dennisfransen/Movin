@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_edit:
                         Toast.makeText(MainActivity.this, "Action edit", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.action_remove:
+                    case R.id.map:
                         Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                         startActivity(intent);
                         break;

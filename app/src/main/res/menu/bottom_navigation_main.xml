@@ -17,10 +17,10 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_remove"
+        android:id="@+id/map"
         android:enabled="true"
-        android:icon="@drawable/ic_remove"
-        android:title="Remove"
+        android:icon="@drawable/ic_map"
+        android:title="Map"
         app:showAsAction="ifRoom" />
 
 </menu>
