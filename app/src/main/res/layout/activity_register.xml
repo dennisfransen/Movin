@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="24dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/first_name"
-        android:inputType="textPersonName"
-        android:autofillHints="" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/last_name_et"
@@ -24,10 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/first_name_et"
         android:layout_marginTop="24dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/last_name"
-        android:inputType="textPersonName"
-        android:autofillHints="" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/phone_number_et"
@@ -35,10 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/last_name_et"
         android:layout_marginTop="24dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/phone_number"
-        android:inputType="number|phone"
-        android:autofillHints="" />
+        android:inputType="number|phone" />
 
     <Button
         android:id="@+id/finish_btn"
@@ -47,6 +47,7 @@
         android:layout_below="@+id/phone_number_et"
         android:layout_alignEnd="@+id/last_name_et"
         android:layout_marginTop="24dp"
+        android:backgroundTint="@color/colorAccent"
         android:text="@string/finish" />
 
 
