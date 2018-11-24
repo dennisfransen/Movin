@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_add"
+        android:id="@+id/search"
         android:enabled="true"
-        android:icon="@drawable/ic_add"
-        android:title="Add"
+        android:icon="@drawable/ic_search"
+        android:title="Search"
         app:showAsAction="ifRoom" />
 
     <item

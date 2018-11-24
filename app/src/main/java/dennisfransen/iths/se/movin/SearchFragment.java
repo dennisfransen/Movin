@@ -28,7 +28,7 @@ public class SearchFragment extends Fragment {
 
     public static final String TAG = "SearchFragment";
     private GeoDataClient mGeoDataClient;
-    private EditText mEditText;
+    private EditText mSearchField;
     private ListView mListView;
     private List<String> mListOfPredictions;
 
@@ -36,7 +36,7 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        mEditText = view.findViewById(R.id.search_field_et);
+        mSearchField = view.findViewById(R.id.search_field_et);
         mListView = view.findViewById(R.id.listView);
         mListOfPredictions = new ArrayList<>();
         //mListOfPredictions.add("HELLO WORLD");
@@ -47,7 +47,7 @@ public class SearchFragment extends Fragment {
         mGeoDataClient = Places.getGeoDataClient(getActivity());
         final AutocompleteFilter countryFilter = new AutocompleteFilter.Builder().setCountry("SE").build();
 
-        mEditText.addTextChangedListener(new TextWatcher() {
+        mSearchField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

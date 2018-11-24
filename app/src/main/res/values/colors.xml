@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF80CBC4</color>
+    <color name="colorPrimary">#FF212121</color>
     <color name="colorPrimaryDark">#FF000000</color>
     <color name="colorAccent">#FF80CBC4</color>
+
+    <color name="switchBackground">#33353A</color>
+    <color name="backgroundColorX">#FF303030</color>
+    <color name="bottomNavAndToolbar">#59bfff</color>
+
+    <!-- Custom Theme -->
+    <color name="colorPrimaryX">#FFF5F5F5</color>
+    <color name="colorPrimaryDarkX">#FF757575</color>
+    <color name="colorAccentX">#FF008577</color>
 </resources>

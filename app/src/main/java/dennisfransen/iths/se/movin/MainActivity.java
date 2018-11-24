@@ -16,12 +16,19 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton mAbout, mSettings;
     private SearchFragment searchFragment;
+    private AboutFragment aboutFragment;
+    private SettingsFragment settingsFragment;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Instance of all fragments that are supposed to be view in frame_container
+        aboutFragment = new AboutFragment();
+        settingsFragment = new SettingsFragment();
+
 
         // Start with SearchFragment.
         searchFragment = new SearchFragment();
@@ -31,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "About", Toast.LENGTH_SHORT).show();
+                setFragment(aboutFragment);
             }
         });
 
@@ -39,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
+                setFragment(settingsFragment);
             }
         });
 
@@ -48,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.action_add:
-                        Toast.makeText(MainActivity.this, "Action add", Toast.LENGTH_SHORT).show();
+                    case R.id.search:
+                        setFragment(searchFragment);
                         break;
                     case R.id.action_edit:
                         Toast.makeText(MainActivity.this, "Action edit", Toast.LENGTH_SHORT).show();
