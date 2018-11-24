@@ -2,6 +2,9 @@ package dennisfransen.iths.se.movin;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,11 +15,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton mAbout, mSettings;
+    private SearchFragment searchFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Start with SearchFragment.
+        searchFragment = new SearchFragment();
+        setFragment(searchFragment);
 
         mAbout = findViewById(R.id.about_btn);
         mAbout.setOnClickListener(new View.OnClickListener() {
@@ -52,5 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame_container, fragment);
+        fragmentTransaction.commit();
     }
 }
