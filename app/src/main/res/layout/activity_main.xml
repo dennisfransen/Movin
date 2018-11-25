@@ -18,9 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/annie_use_your_telescope"
+            android:fontFamily="@font/lemon"
             android:text="@string/app_name"
-            android:textSize="36sp" />
+            android:textSize="24sp" />
 
         <ImageButton
             android:id="@+id/settings_btn"
@@ -30,7 +30,8 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
             android:backgroundTint="@color/bottomNavAndToolbar"
-            app:srcCompat="@drawable/ic_settings" />
+            app:srcCompat="@drawable/ic_settings"
+            android:contentDescription="@string/settings_button" />
 
         <ImageButton
             android:id="@+id/about_btn"
@@ -40,7 +41,8 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
             android:backgroundTint="@color/bottomNavAndToolbar"
-            app:srcCompat="@drawable/ic_about" />
+            app:srcCompat="@drawable/ic_about"
+            android:contentDescription="@string/about_button" />
 
     </android.support.v7.widget.Toolbar>
 
