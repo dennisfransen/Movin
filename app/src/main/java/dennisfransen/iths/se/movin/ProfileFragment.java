@@ -2,6 +2,7 @@ package dennisfransen.iths.se.movin;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,15 @@ public class ProfileFragment extends Fragment {
                 mCompanyOrgNumber.append(companyOrgNumber);
                 mCompanyPhoneNumber.append(companyContactNumber);
                 mCompanyEmail.append(companyContactEmail);
+
+                if (documentSnapshot.getBoolean("company_cleaning_type").equals(true))
+                    mClean.setChecked(true);
+
+                if (documentSnapshot.getBoolean("company_moving_type").equals(true))
+                    mMove.setChecked(true);
+
+                String id = documentSnapshot.getId();
+                Log.i("ID: ", id);
             }
         });
 
