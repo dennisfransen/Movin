@@ -45,6 +45,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
+    // Circular company profile picture
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 }
 

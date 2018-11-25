@@ -10,10 +10,10 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_edit"
+        android:id="@+id/profile"
         android:enabled="true"
-        android:icon="@drawable/ic_edit"
-        android:title="Edit"
+        android:icon="@drawable/ic_person"
+        android:title="Profile"
         app:showAsAction="ifRoom" />
 
     <item

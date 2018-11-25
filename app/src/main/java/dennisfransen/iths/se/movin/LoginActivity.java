@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 registerUser();
             }
         });
@@ -88,6 +89,8 @@ public class LoginActivity extends AppCompatActivity {
             });
         }
     }
+
+
 
     private void registerUser() {
         String email = mEmail.getText().toString().trim();
@@ -127,4 +130,9 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    public EditText getmEmail() {
+        return mEmail;
+    }
+
 }

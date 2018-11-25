@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ProfileFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_avatar_im"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_person"
+        app:civ_border_color="@color/prof"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/company_name_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/user_avatar_im"
+        tools:text="@string/company_name" />
+
+    <TextView
+        android:id="@+id/company_adress_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_name_et"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/user_avatar_im"
+        tools:text="@string/company_adress" />
+
+    <TextView
+        android:id="@+id/company_org_number_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_adress_et"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/user_avatar_im"
+        tools:text="Org number" />
+
+
+    <TextView
+        android:id="@+id/contact_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_org_number_et"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Contact information" />
+
+
+    <TextView
+        android:id="@+id/phone_number_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_information"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        tools:text="Phone number" />
+
+    <TextView
+        android:id="@+id/company_email_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone_number_et"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        tools:text="Email adress" />
+
+    <CheckBox
+        android:id="@+id/move_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_org_number_et"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:text="Move" />
+
+    <CheckBox
+        android:id="@+id/clean_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_org_number_et"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_toStartOf="@+id/move_cb"
+        android:text="Clean" />
+
+
+    <!--<ImageButton-->
+        <!--android:id="@+id/change_avatar_btn"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:background="@drawable/change_profile_bg_circle"-->
+        <!--android:contentDescription="Change company logo"-->
+        <!--android:src="@drawable/ic_add_photo" />-->
+
+
+
+</RelativeLayout>

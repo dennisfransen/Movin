@@ -8,47 +8,111 @@
     tools:context=".RegisterActivity">
 
     <EditText
-        android:id="@+id/first_name_et"
+        android:id="@+id/company_name_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="24dp"
-        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/first_name"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/last_name_et"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/first_name_et"
-        android:layout_marginTop="24dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/last_name"
-        android:inputType="textPersonName" />
+        android:hint="@string/company_name"
+        android:inputType="textPersonName"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/phone_number_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/last_name_et"
+        android:layout_below="@+id/company_email_et"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/phone_number"
-        android:inputType="number|phone" />
+        android:hint="@string/contact_number"
+        android:inputType="number|phone"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/finish_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/phone_number_et"
-        android:layout_alignEnd="@+id/last_name_et"
+        android:layout_below="@+id/move_firm_cb"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/colorAccent"
         android:text="@string/finish" />
+
+    <EditText
+        android:id="@+id/company_adress_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_name_et"
+        android:layout_alignStart="@+id/company_name_et"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/company_adress"
+        android:inputType="textPostalAddress"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/company_email_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_adress_et"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/contact_e_mail"
+        android:inputType="textEmailAddress"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/company_org_number_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phone_number_et"
+        android:layout_alignStart="@+id/company_email_et"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/organisation_number"
+        android:inputType="number"
+        android:autofillHints="" />
+
+    <CheckBox
+        android:id="@+id/move_firm_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_business_cat_tv"
+        android:layout_alignStart="@+id/company_email_et"
+        android:layout_marginTop="8dp"
+        android:text="@string/moving" />
+
+    <CheckBox
+        android:id="@+id/clean_firm_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_business_cat_tv"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@+id/move_firm_cb"
+        android:text="@string/cleaning" />
+
+    <EditText
+        android:id="@+id/company_webpage_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_org_number_et"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/https_www_company_com"
+        android:inputType="textPersonName"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/company_business_cat_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_webpage_et"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/business_type"
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

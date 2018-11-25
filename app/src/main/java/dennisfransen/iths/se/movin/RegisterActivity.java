@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText mFirstName, mLastName, mPhoneNumber;
+    private EditText mCompanyName, mCompanyAdress, mCompanyEmail, mCompanyPhoneNumber, mCompanyOrgNumber;
+    private CheckBox mCleaning, mMove;
     private Button mFinish;
 
     private FirebaseFirestore firebaseFirestore;
@@ -36,32 +38,48 @@ public class RegisterActivity extends AppCompatActivity {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        mFirstName = findViewById(R.id.first_name_et);
-        mLastName = findViewById(R.id.last_name_et);
-        mPhoneNumber = findViewById(R.id.phone_number_et);
+        mCompanyName = findViewById(R.id.company_name_et);
+        mCompanyAdress = findViewById(R.id.company_adress_et);
+        mCompanyEmail = findViewById(R.id.company_email_et);
+        mCompanyPhoneNumber = findViewById(R.id.phone_number_et);
+        mCompanyOrgNumber = findViewById(R.id.company_org_number_et);
+        mCleaning = findViewById(R.id.clean_firm_cb);
+        mMove = findViewById(R.id.move_firm_cb);
 
-        // Pressing finish will add username, firstname, lastname, phonenumber to an uniqe database id that will be saved in the firestore database.
+        // Get email that were used to create account and set in mCompanyEmail Edit Text field.
+        // So that when company user wont be needed to fill the company email field.
+        mCompanyEmail.setText(user.getEmail());
+
+        // Pressing finish will add company profile into a unique database id that will be saved in the Firestore database.
         mFinish = findViewById(R.id.finish_btn);
         mFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // TODO: Check if username is already in use.
-                String firstName = mFirstName.getText().toString();
-                String lastName = mLastName.getText().toString();
-                String phoneNumber = mPhoneNumber.getText().toString();
+                String company_name = mCompanyName.getText().toString();
+                String company_address = mCompanyAdress.getText().toString();
+                String company_email = mCompanyEmail.getText().toString();
+                String company_number = mCompanyPhoneNumber.getText().toString();
+                String company_org_number = mCompanyOrgNumber.getText().toString();
+                boolean company_cleaning_type = mCleaning.isChecked();
+                boolean company_moving_type = mMove.isChecked();
 
-                Map<String, String> userMap = new HashMap<>();
-                userMap.put("firstname", firstName);
-                userMap.put("lastname", lastName);
-                userMap.put("phonenumber", phoneNumber);
+                Map<String, Object> userMap = new HashMap<>();
+                userMap.put("company_name", company_name );
+                userMap.put("company_address", company_address);
+                userMap.put("company_contact_email", company_email);
+                userMap.put("company_contact_number", company_number);
+                userMap.put("company_org_number", company_org_number);
+                userMap.put("company_cleaning_type", company_cleaning_type);
+                userMap.put("company_moving_type", company_moving_type);
 
                 // Add Document to database under users collection. Set document id to current user id
-                firebaseFirestore.collection("users").document(user.getUid()).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                firebaseFirestore.collection("company").document(company_org_number).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         // Welcome the end user. Registration complete.
-                        Toast.makeText(RegisterActivity.this, "You successfully added your account, welcome!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "You successfully added your company account, welcome!", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

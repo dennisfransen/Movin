@@ -5,13 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private SearchFragment searchFragment;
     private AboutFragment aboutFragment;
     private SettingsFragment settingsFragment;
+    private ProfileFragment profileFragment;
 
 
     @Override
@@ -29,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         // Instance of all fragments that are supposed to be view in frame_container
         aboutFragment = new AboutFragment();
         settingsFragment = new SettingsFragment();
-
+        searchFragment = new SearchFragment();
 
         // Start with SearchFragment.
-        searchFragment = new SearchFragment();
-        setFragment(searchFragment);
+        profileFragment = new ProfileFragment();
+        setFragment(profileFragment);
 
         mAbout = findViewById(R.id.about_btn);
         mAbout.setOnClickListener(new View.OnClickListener() {
@@ -59,8 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.search:
                         setFragment(searchFragment);
                         break;
-                    case R.id.action_edit:
-                        Toast.makeText(MainActivity.this, "Action edit", Toast.LENGTH_SHORT).show();
+                    case R.id.profile:
+                        setFragment(profileFragment);
                         break;
                     case R.id.map:
                         Intent intent = new Intent(MainActivity.this, MapsActivity.class);

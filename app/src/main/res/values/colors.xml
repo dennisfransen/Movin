@@ -12,4 +12,7 @@
     <color name="colorPrimaryX">#FFF5F5F5</color>
     <color name="colorPrimaryDarkX">#FF757575</color>
     <color name="colorAccentX">#FF008577</color>
+
+    <!-- Profile picture frame -->
+    <color name="prof">#FFCD24</color>
 </resources>

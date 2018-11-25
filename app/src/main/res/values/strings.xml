@@ -29,4 +29,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="company_name">Company name</string>
+    <string name="contact_number">Contact number</string>
+    <string name="company_adress">Company adress</string>
+    <string name="contact_e_mail">Contact E-mail</string>
+    <string name="organisation_number">Organisation number</string>
+    <string name="cleaning">Cleaning</string>
+    <string name="https_www_company_com">https://www.company.com</string>
+    <string name="moving">Moving</string>
+    <string name="business_type">Business type</string>
 </resources>
