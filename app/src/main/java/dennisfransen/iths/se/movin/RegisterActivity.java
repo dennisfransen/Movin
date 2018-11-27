@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mFinish;
 
     private FirebaseFirestore firebaseFirestore;
-    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
         mMove = findViewById(R.id.move_firm_cb);
 
         // Get email that were used to create account and set in mCompanyEmail Edit Text field.
-        // So that when company user wont be needed to fill the company email field.
-        mCompanyEmail.setText(user.getEmail());
+        // So that when company mUser wont be needed to fill the company email field.
+        mCompanyEmail.setText(mUser.getEmail());
 
         // Pressing finish will add company profile into a unique database id that will be saved in the Firestore database.
         mFinish = findViewById(R.id.finish_btn);
@@ -74,24 +74,24 @@ public class RegisterActivity extends AppCompatActivity {
                 userMap.put("company_cleaning_type", company_cleaning_type);
                 userMap.put("company_moving_type", company_moving_type);
 
-                // Add Document to database under users collection. Set document id to current user id
-                firebaseFirestore.collection("company").document(company_org_number).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                // Add Document to database under users collection. Set document id to current mUser id
+                firebaseFirestore.collection("company").document(mUser.getUid()).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        // Welcome the end user. Registration complete.
+                        // Welcome the end mUser. Registration complete.
                         Toast.makeText(RegisterActivity.this, "You successfully added your company account, welcome!", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Get error message from application and display in toast for end user.
+                        // Get error message from application and display in toast for end mUser.
                         String error = e.getMessage();
                         Toast.makeText(RegisterActivity.this, "Error: " + error, Toast.LENGTH_LONG).show();
                     }
                 }).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        // Send end user to MainActivity.
+                        // Send end mUser to MainActivity.
                         Intent gotoMainActivity = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(gotoMainActivity);
                     }

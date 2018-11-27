@@ -23,54 +23,14 @@ import java.util.List;
 public class SearchFragment extends Fragment {
 
     public SearchFragment() {
-        // Required empty public constructor
     }
-
-    private GeoDataClient mGeoDataClient;
-    private EditText mSearchField;
-    private ListView mListView;
-    private List<String> mListOfPredictions;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        mSearchField = view.findViewById(R.id.search_field_et);
-        mListView = view.findViewById(R.id.listView);
-        mListOfPredictions = new ArrayList<>();
-        //mListOfPredictions.add("HELLO WORLD");
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, mListOfPredictions);
-        mListView.setAdapter(arrayAdapter);
 
-        mGeoDataClient = Places.getGeoDataClient(getActivity());
-        final AutocompleteFilter countryFilter = new AutocompleteFilter.Builder().setCountry("SE").build();
-
-        mSearchField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mGeoDataClient.getAutocompletePredictions(s.toString(), null, countryFilter).addOnSuccessListener(new OnSuccessListener<AutocompletePredictionBufferResponse>() {
-                    @Override
-                    public void onSuccess(AutocompletePredictionBufferResponse autocompletePredictions) {
-                        mListOfPredictions.clear();
-                        for (int i = 0; i < autocompletePredictions.getCount(); i++) {
-                            mListOfPredictions.add(autocompletePredictions.get(i).getPrimaryText(null).toString());
-                        }
-                        arrayAdapter.notifyDataSetChanged();
-                    }
-                });
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
         return view;
     }

@@ -27,6 +27,7 @@ public class ProfileFragment extends Fragment {
     private ImageButton mChangeCompanyLogo;
 
     private FirebaseFirestore mFirestore = FirebaseFirestore.getInstance();
+    private FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class ProfileFragment extends Fragment {
 
 
 
-        mFirestore.collection("company").document("921116326555").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        mFirestore.collection("company").document(mUser.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 // OnSuccess, get credentials from database in document field.
@@ -53,11 +54,11 @@ public class ProfileFragment extends Fragment {
                 String companyContactEmail = documentSnapshot.getString("company_contact_email");
 
                 // Print out company user profile from database
-                mCompanyName.append(companyName);
-                mCompanyAddress.append(companyAddress);
-                mCompanyOrgNumber.append(companyOrgNumber);
-                mCompanyPhoneNumber.append(companyContactNumber);
-                mCompanyEmail.append(companyContactEmail);
+                mCompanyName.append("Company: " + companyName);
+                mCompanyAddress.append("Address: " + companyAddress);
+                mCompanyOrgNumber.append("Organisation number: " + companyOrgNumber);
+                mCompanyPhoneNumber.append("Phone Number: " + companyContactNumber);
+                mCompanyEmail.append("E-mail: " + companyContactEmail);
 
                 if (documentSnapshot.getBoolean("company_cleaning_type").equals(true))
                     mClean.setChecked(true);

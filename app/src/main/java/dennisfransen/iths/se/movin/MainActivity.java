@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Start with SearchFragment.
         profileFragment = new ProfileFragment();
-        setFragment(profileFragment);
+        setFragment(searchFragment);
 
         mAbout = findViewById(R.id.about_btn);
         mAbout.setOnClickListener(new View.OnClickListener() {
