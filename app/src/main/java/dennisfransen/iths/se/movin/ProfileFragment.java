@@ -54,11 +54,11 @@ public class ProfileFragment extends Fragment {
                 String companyContactEmail = documentSnapshot.getString("company_contact_email");
 
                 // Print out company user profile from database
-                mCompanyName.append("Company: " + companyName);
-                mCompanyAddress.append("Address: " + companyAddress);
-                mCompanyOrgNumber.append("Organisation number: " + companyOrgNumber);
-                mCompanyPhoneNumber.append("Phone Number: " + companyContactNumber);
-                mCompanyEmail.append("E-mail: " + companyContactEmail);
+                mCompanyName.append(": " + companyName);
+                mCompanyAddress.append(": " + companyAddress);
+                mCompanyOrgNumber.append(": " + companyOrgNumber);
+                mCompanyPhoneNumber.append(": " + companyContactNumber);
+                mCompanyEmail.append(": " + companyContactEmail);
 
                 if (documentSnapshot.getBoolean("company_cleaning_type").equals(true))
                     mClean.setChecked(true);

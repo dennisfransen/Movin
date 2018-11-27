@@ -27,7 +27,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/user_avatar_im"
-        tools:text="@string/company_name" />
+        android:text="@string/company_name" />
 
     <TextView
         android:id="@+id/company_adress_et"
@@ -37,7 +37,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/user_avatar_im"
-        tools:text="@string/company_adress" />
+        android:text="@string/company_adress" />
 
     <TextView
         android:id="@+id/company_org_number_et"
@@ -47,7 +47,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/user_avatar_im"
-        tools:text="Org number" />
+        android:text="Org number" />
 
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        tools:text="Phone number" />
+        android:text="Phone number" />
 
     <TextView
         android:id="@+id/company_email_et"
@@ -79,7 +79,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        tools:text="Email adress" />
+        android:text="Email address" />
 
     <CheckBox
         android:id="@+id/move_cb"
@@ -115,13 +115,6 @@
     <!--android:background="@drawable/change_profile_bg_circle"-->
     <!--android:contentDescription="Change company logo"-->
     <!--android:src="@drawable/ic_add_photo" />-->
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/company_email_et"
-        android:layout_alignEnd="@+id/move_cb"
-        android:layout_marginTop="24dp" />
 
 
 </RelativeLayout>
