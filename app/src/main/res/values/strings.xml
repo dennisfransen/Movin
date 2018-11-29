@@ -46,4 +46,9 @@
     <string name="company_semicolon">Company:</string>
     <string name="organisation_number_semicolon">Organisation number:</string>
     <string name="company_logotype_image">Company Logotype Image</string>
+    <string name="name">Name</string>
+    <string name="review">Review...</string>
+    <string name="address_semi_colon">Address:</string>
+    <string name="review_text">Review text</string>
+    <string name="review_name">Review name</string>
 </resources>

@@ -23,7 +23,7 @@ public class SearchFragment extends Fragment {
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private CollectionReference companyRef = firebaseFirestore.collection("company");
 
-    private CompanyAdapter companyAdapter;
+    private ReviewAdapter reviewAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,12 +35,12 @@ public class SearchFragment extends Fragment {
                 .setQuery(query, CompanyModel.class)
                 .build();
 
-        companyAdapter = new CompanyAdapter(options, getActivity().getSupportFragmentManager());
+        reviewAdapter = new ReviewAdapter(options, getActivity().getSupportFragmentManager());
 
         RecyclerView recyclerView = view.findViewById(R.id.company_rv);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(companyAdapter);
+        recyclerView.setAdapter(reviewAdapter);
 
         return view;
     }
@@ -48,12 +48,12 @@ public class SearchFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        companyAdapter.startListening();
+        reviewAdapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        companyAdapter.stopListening();
+        reviewAdapter.stopListening();
     }
 }
