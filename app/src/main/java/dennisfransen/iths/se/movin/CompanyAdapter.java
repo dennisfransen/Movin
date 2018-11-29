@@ -60,12 +60,14 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
             @Override
             public void onClick(View v) {
 
+
                 ReviewFragment reviewFragment = new ReviewFragment();
 
                 companyName = holder.companyName.getText().toString();
 
                 Bundle companyData = new Bundle();
                 companyData.putString("COMPANY_NAME", companyName);
+
                 reviewFragment.setArguments(companyData);
 
 
