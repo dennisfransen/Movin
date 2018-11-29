@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/company_cv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
     android:clickable="true"
+    android:layout_marginBottom="8dp"
     android:focusable="true"
     app:cardCornerRadius="5dp"
-    app:cardElevation="4dp"
-    app:contentPadding="8dp">
+    app:cardElevation="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/card_company_logo_iv"
@@ -22,6 +22,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:contentDescription="@string/company_logotype_image"
             app:srcCompat="@drawable/ic_person" />
 
         <TextView
@@ -31,8 +32,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/card_star_rating_rb"
             android:layout_toEndOf="@+id/card_company_logo_iv"
-            android:text="Company: " />
+            android:text="@string/company_semicolon" />
 
         <TextView
             android:id="@+id/card_company_org_number_tv"
@@ -40,52 +42,69 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/card_company_name_tv"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/card_company_logo_iv"
-            android:text="Organisation number: " />
+            android:text="@string/organisation_number_semicolon" />
 
         <CheckBox
             android:id="@+id/card_clean_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/card_company_logo_iv"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="6dp"
-            android:text="Clean" />
+            android:layout_toEndOf="@+id/card_move_cb"
+            android:clickable="false"
+            android:text="@string/clean" />
 
         <CheckBox
-            android:id="@+id/card_move_btn"
+            android:id="@+id/card_move_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/card_company_logo_iv"
-            android:layout_marginStart="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
-            android:layout_toEndOf="@+id/card_clean_cb"
-            android:text="Move" />
+            android:clickable="false"
+            android:text="@string/move" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/card_add_review_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/card_star_rating_rb"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             android:clickable="true"
             android:focusable="true"
             app:elevation="4dp"
-            app:srcCompat="@drawable/ic_add" />
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_review" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/card_phone_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_star_rating_rb"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@+id/card_add_review_fab"
+            android:clickable="true"
+            android:focusable="true"
+            app:elevation="4dp"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_phone" />
 
         <RatingBar
             android:id="@+id/card_star_rating_rb"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_company_org_number_tv"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_toEndOf="@+id/card_move_btn"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:numStars="5"
             android:stepSize="0.5" />
 

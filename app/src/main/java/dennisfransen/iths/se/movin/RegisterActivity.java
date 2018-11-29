@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -46,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
         mCleaning = findViewById(R.id.clean_firm_cb);
         mMove = findViewById(R.id.move_firm_cb);
 
+
+
         // Get email that were used to create account and set in mCompanyEmail Edit Text field.
         // So that when company mUser wont be needed to fill the company email field.
         mCompanyEmail.setText(mUser.getEmail());
@@ -57,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // TODO: Check if username is already in use.
-                String company_name = mCompanyName.getText().toString();
+                final String company_name = mCompanyName.getText().toString();
                 String company_address = mCompanyAdress.getText().toString();
                 String company_email = mCompanyEmail.getText().toString();
                 String company_number = mCompanyPhoneNumber.getText().toString();
@@ -65,19 +68,30 @@ public class RegisterActivity extends AppCompatActivity {
                 boolean company_cleaning_type = mCleaning.isChecked();
                 boolean company_moving_type = mMove.isChecked();
 
-                Map<String, Object> userMap = new HashMap<>();
-                userMap.put("company_name", company_name );
-                userMap.put("company_address", company_address);
-                userMap.put("company_contact_email", company_email);
-                userMap.put("company_contact_number", company_number);
-                userMap.put("company_org_number", company_org_number);
-                userMap.put("company_cleaning_type", company_cleaning_type);
-                userMap.put("company_moving_type", company_moving_type);
+                Map<String, Object> companyMap = new HashMap<>();
+                companyMap.put("company_name", company_name );
+                companyMap.put("company_address", company_address);
+                companyMap.put("company_contact_email", company_email);
+                companyMap.put("company_contact_number", company_number);
+                companyMap.put("company_org_number", company_org_number);
+                companyMap.put("company_cleaning_type", company_cleaning_type);
+                companyMap.put("company_moving_type", company_moving_type);
 
                 // Add Document to database under users collection. Set document id to current mUser id
-                firebaseFirestore.collection("company").document(mUser.getUid()).set(userMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                firebaseFirestore.collection("company").document(company_name).set(companyMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+
+                        // Change current user display name so that it can be used to fetch specific user in ProfileFragment.
+                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(company_name).build();
+
+                        mUser.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(RegisterActivity.this, "Updated user display name: " + mUser.getDisplayName(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
                         // Welcome the end mUser. Registration complete.
                         Toast.makeText(RegisterActivity.this, "You successfully added your company account, welcome!", Toast.LENGTH_SHORT).show();
                     }
