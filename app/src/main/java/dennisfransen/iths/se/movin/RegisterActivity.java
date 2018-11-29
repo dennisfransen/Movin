@@ -47,8 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
         mCleaning = findViewById(R.id.clean_firm_cb);
         mMove = findViewById(R.id.move_firm_cb);
 
-
-
         // Get email that were used to create account and set in mCompanyEmail Edit Text field.
         // So that when company mUser wont be needed to fill the company email field.
         mCompanyEmail.setText(mUser.getEmail());

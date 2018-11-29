@@ -4,18 +4,19 @@
     android:id="@+id/company_cv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
     android:layout_marginBottom="8dp"
+    android:clickable="true"
     android:focusable="true"
     app:cardCornerRadius="5dp"
     app:cardElevation="4dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp">
 
         <ImageView
-            android:id="@+id/card_company_logo_iv"
+            android:id="@+id/company_profile_logo_iv"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
@@ -26,42 +27,42 @@
             app:srcCompat="@drawable/ic_person" />
 
         <TextView
-            android:id="@+id/card_company_name_tv"
+            android:id="@+id/company_profile_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_toStartOf="@+id/card_star_rating_rb"
-            android:layout_toEndOf="@+id/card_company_logo_iv"
+            android:layout_toStartOf="@+id/company_profile_star_rating_rb"
+            android:layout_toEndOf="@+id/company_profile_logo_iv"
             android:text="@string/company_semicolon" />
 
         <TextView
-            android:id="@+id/card_company_org_number_tv"
+            android:id="@+id/card_address_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_company_name_tv"
+            android:layout_below="@+id/company_profile_name_tv"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/card_company_logo_iv"
-            android:text="@string/organisation_number_semicolon" />
+            android:layout_toEndOf="@+id/company_profile_logo_iv"
+            android:text="Address: " />
 
         <CheckBox
             android:id="@+id/card_clean_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_company_logo_iv"
+            android:layout_below="@+id/company_profile_logo_iv"
             android:layout_marginStart="8dp"
             android:layout_marginTop="6dp"
-            android:layout_toEndOf="@+id/card_move_cb"
+            android:layout_toEndOf="@+id/company_profile_move_cb"
             android:clickable="false"
             android:text="@string/clean" />
 
         <CheckBox
-            android:id="@+id/card_move_cb"
+            android:id="@+id/company_profile_move_cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_company_logo_iv"
+            android:layout_below="@+id/company_profile_logo_iv"
             android:layout_alignParentStart="true"
             android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
@@ -69,10 +70,10 @@
             android:text="@string/move" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/card_add_review_fab"
+            android:id="@+id/company_profile_add_review_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_star_rating_rb"
+            android:layout_below="@+id/company_profile_star_rating_rb"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
@@ -86,10 +87,10 @@
             android:id="@+id/card_phone_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/card_star_rating_rb"
+            android:layout_below="@+id/company_profile_star_rating_rb"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
-            android:layout_toStartOf="@+id/card_add_review_fab"
+            android:layout_toStartOf="@+id/company_profile_add_review_fab"
             android:clickable="true"
             android:focusable="true"
             app:elevation="4dp"
@@ -97,7 +98,7 @@
             app:srcCompat="@drawable/ic_phone" />
 
         <RatingBar
-            android:id="@+id/card_star_rating_rb"
+            android:id="@+id/company_profile_star_rating_rb"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
