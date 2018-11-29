@@ -20,10 +20,10 @@ public class CompanyViewHolder extends RecyclerView.ViewHolder {
     public void setDetails (Context context, String company_name, String company_address, boolean company_cleaning_type, boolean company_moving_type) {
 
         // Add text views, buttons, checkboxes, floating action buttons, rating bar.
-        TextView mCompanyName = mView.findViewById(R.id.company_profile_name_tv);
+        TextView mCompanyName = mView.findViewById(R.id.card_name_tv);
         TextView mCompanyAddress = mView.findViewById(R.id.card_address_tv);
         CheckBox mCleanCb = mView.findViewById(R.id.card_clean_cb);
-        CheckBox mMoveCb = mView.findViewById(R.id.company_profile_move_cb);
+        CheckBox mMoveCb = mView.findViewById(R.id.card_move_cb);
 
         // Set data to text views, buttons, checkboxes, floating action buttons, rating bar
         mCompanyName.setText(company_name);

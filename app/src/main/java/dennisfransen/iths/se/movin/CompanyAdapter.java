@@ -100,12 +100,12 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
             super(itemView);
             mContext = context;
 
-            companyName = itemView.findViewById(R.id.company_profile_name_tv);
+            companyName = itemView.findViewById(R.id.card_name_tv);
             companyAddress = itemView.findViewById(R.id.card_address_tv);
             clean = itemView.findViewById(R.id.card_clean_cb);
-            move = itemView.findViewById(R.id.company_profile_move_cb);
+            move = itemView.findViewById(R.id.card_move_cb);
             call = itemView.findViewById(R.id.card_phone_fab);
-            addReview = itemView.findViewById(R.id.company_profile_add_review_fab);
+            addReview = itemView.findViewById(R.id.card_add_review_fab);
 
             cardView = itemView.findViewById(R.id.company_cv);
 
