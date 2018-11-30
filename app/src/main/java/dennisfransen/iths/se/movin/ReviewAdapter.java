@@ -16,8 +16,6 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
 
     private FragmentManager mContext;
 
-    private String companyName;
-
     public ReviewAdapter(@NonNull FirestoreRecyclerOptions<ReviewModel> options, FragmentManager context) {
         super(options);
         mContext = context;
@@ -28,14 +26,14 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
 
         holder.reviewName.setText(model.getReview_name());
         holder.reviewText.setText(model.getReview_text());
-        holder.starRating.setNumStars(model.getReview_star_rating().getNumStars());
+//        holder.starRating.setNumStars(model.getReview_star_rating().getNumStars());
 
 
     }
 
     @NonNull
     @Override
-    public ReviewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ReviewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view_review, viewGroup, false);
         return new ReviewHolder(view, mContext);
     }
@@ -43,7 +41,7 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
     class ReviewHolder extends RecyclerView.ViewHolder {
 
         private TextView reviewName, reviewText;
-        private RatingBar starRating;
+//        private RatingBar starRating;
 
         public ReviewHolder(@NonNull View itemView, FragmentManager context) {
             super(itemView);
@@ -51,7 +49,7 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
 
             reviewName = itemView.findViewById(R.id.review_name_tv);
             reviewText = itemView.findViewById(R.id.review_text_tv);
-            starRating = itemView.findViewById(R.id.review_star_rating);
+//            starRating = itemView.findViewById(R.id.review_star_rating);
 
         }
     }

@@ -1,8 +1,7 @@
 package dennisfransen.iths.se.movin;
 
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,19 +14,19 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class CompanyPageFragment extends Fragment {
+public class TestFragment extends Fragment {
 
-    public CompanyPageFragment() {
+    public TestFragment() {
     }
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-    private CollectionReference reviewRef = firebaseFirestore.collection("company").document("Company name").collection("review");
+    private CollectionReference reviewRef = firebaseFirestore.collection("reviews");
 
     private ReviewAdapter reviewAdapter;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_company_page, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_test, container, false);
 
         Query query = reviewRef.orderBy("review_name", Query.Direction.ASCENDING);
 
@@ -37,7 +36,7 @@ public class CompanyPageFragment extends Fragment {
 
         reviewAdapter = new ReviewAdapter(options, getActivity().getSupportFragmentManager());
 
-        RecyclerView recyclerView = view.findViewById(R.id.review_rv);
+        RecyclerView recyclerView = view.findViewById(R.id.test_rv);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(reviewAdapter);

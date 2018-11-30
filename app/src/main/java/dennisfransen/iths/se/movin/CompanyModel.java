@@ -37,26 +37,6 @@ public class CompanyModel {
         this.company_name = company_name;
     }
 
-    public void setCompany_org_number(String company_org_number) {
-        this.company_org_number = company_org_number;
-    }
-
-    public void setCompany_address(String company_address) {
-        this.company_address = company_address;
-    }
-
-    public void setCompany_contact_number(String company_contact_number) {
-        this.company_contact_number = company_contact_number;
-    }
-
-    public void setCompany_cleaning_type(boolean company_cleaning_type) {
-        this.company_cleaning_type = company_cleaning_type;
-    }
-
-    public void setCompany_moving_type(boolean company_moving_type) {
-        this.company_moving_type = company_moving_type;
-    }
-
     public String getCompany_name() {
         return company_name;
     }
