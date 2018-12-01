@@ -8,22 +8,6 @@ public class CompanyModel {
     public CompanyModel() {
     }
 
-    public CompanyModel(String company_name, String company_org_number, boolean company_cleaning_type, boolean company_moving_type) {
-        this.company_name = company_name;
-        this.company_org_number = company_org_number;
-        this.company_cleaning_type = company_cleaning_type;
-        this.company_moving_type = company_moving_type;
-    }
-
-    public CompanyModel(boolean company_cleaning_type, boolean company_moving_type) {
-        this.company_name = company_name;
-        this.company_org_number = company_org_number;
-        this.company_address = company_address;
-        this.company_contact_number = company_contact_number;
-        this.company_cleaning_type = company_cleaning_type;
-        this.company_moving_type = company_moving_type;
-    }
-
     public CompanyModel(String company_name, String company_org_number, String company_address, String company_contact_number, boolean company_cleaning_type, boolean company_moving_type) {
         this.company_name = company_name;
         this.company_org_number = company_org_number;

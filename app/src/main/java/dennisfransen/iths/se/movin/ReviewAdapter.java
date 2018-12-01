@@ -1,7 +1,6 @@
 package dennisfransen.iths.se.movin;
 
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +13,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewAdapter.ReviewHolder> {
 
-    private FragmentManager mContext;
-
-    public ReviewAdapter(@NonNull FirestoreRecyclerOptions<ReviewModel> options, FragmentManager context) {
+    public ReviewAdapter(@NonNull FirestoreRecyclerOptions<ReviewModel> options) {
         super(options);
-        mContext = context;
     }
 
     @Override
@@ -26,8 +22,7 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
 
         holder.reviewName.setText(model.getReview_name());
         holder.reviewText.setText(model.getReview_text());
-//        holder.starRating.setNumStars(model.getReview_star_rating().getNumStars());
-
+        holder.starRating.setRating(model.getReview_star_rating());
 
     }
 
@@ -35,21 +30,21 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
     @Override
     public ReviewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_view_review, viewGroup, false);
-        return new ReviewHolder(view, mContext);
+
+        return new ReviewAdapter.ReviewHolder(view);
     }
 
     class ReviewHolder extends RecyclerView.ViewHolder {
 
         private TextView reviewName, reviewText;
-//        private RatingBar starRating;
+        RatingBar starRating;
 
-        public ReviewHolder(@NonNull View itemView, FragmentManager context) {
+        public ReviewHolder(@NonNull View itemView) {
             super(itemView);
-            mContext = context;
 
             reviewName = itemView.findViewById(R.id.review_name_tv);
             reviewText = itemView.findViewById(R.id.review_text_tv);
-//            starRating = itemView.findViewById(R.id.review_star_rating);
+            starRating = itemView.findViewById(R.id.review_star_rating);
 
         }
     }

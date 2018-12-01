@@ -1,8 +1,14 @@
 package dennisfransen.iths.se.movin;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
@@ -20,7 +26,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, CompanyAdapter.CompanyHolder> {
 
     private FragmentManager mContext;
-
     private String companyName;
 
     public CompanyAdapter(@NonNull FirestoreRecyclerOptions<CompanyModel> options, FragmentManager context) {
@@ -29,7 +34,7 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final CompanyHolder holder, int position, @NonNull CompanyModel model) {
+    protected void onBindViewHolder(@NonNull final CompanyHolder holder, final int position, @NonNull final CompanyModel model) {
 
         holder.companyName.setText(model.getCompany_name());
         holder.companyAddress.setText(model.getCompany_address());
@@ -42,16 +47,32 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
                 CompanyPageFragment companyPageFragment = new CompanyPageFragment();
 
+                companyName = holder.companyName.getText().toString();
+
+                //Bundles information from adapter and so it can be sent to new Fragment
+                Bundle data = new Bundle();
+
+                data.putString("COMPANY_NAME", companyName);
+
+                companyPageFragment.setArguments(data);
+
+                //Transaction to RestaurantFragment on card click
                 FragmentTransaction fragmentTransaction = mContext.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container, companyPageFragment);
                 fragmentTransaction.commit();
+
             }
         });
 
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("CALL", "Call clicked!");
+
+                String companyNumber = model.getCompany_contact_number();
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + companyNumber));
+                v.getContext().startActivity(intent);
+
             }
         });
 
@@ -59,7 +80,6 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
         holder.addReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 ReviewFragment reviewFragment = new ReviewFragment();
 
@@ -69,7 +89,6 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
                 companyData.putString("COMPANY_NAME", companyName);
 
                 reviewFragment.setArguments(companyData);
-
 
                 FragmentTransaction fragmentTransaction = mContext.beginTransaction();
                 fragmentTransaction.replace(R.id.frame_container, reviewFragment);
@@ -88,13 +107,10 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
     class CompanyHolder extends RecyclerView.ViewHolder {
 
-        private TextView companyName;
-        private TextView companyAddress;
-        private CheckBox clean;
-        private CheckBox move;
-        // private RatingBar starRating;
-        private FloatingActionButton call;
-        private FloatingActionButton addReview;
+        private TextView companyName, companyAddress;
+        private CheckBox clean, move;
+        private FloatingActionButton call, addReview;
+
         private CardView cardView;
 
 

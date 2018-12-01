@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private SettingsFragment settingsFragment;
     private ProfileFragment profileFragment;
 
-    private TestFragment testFragment;
 
 
     @Override
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         aboutFragment = new AboutFragment();
         settingsFragment = new SettingsFragment();
         searchFragment = new SearchFragment();
-        testFragment = new TestFragment();
 
         // Start with SearchFragment.
         profileFragment = new ProfileFragment();
@@ -65,10 +63,8 @@ public class MainActivity extends AppCompatActivity {
                         setFragment(profileFragment);
                         break;
                     case R.id.map:
-                        setFragment(testFragment);
-
-                        //Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                        startActivity(intent);
                         break;
                 }
                 return true;
