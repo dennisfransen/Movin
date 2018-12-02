@@ -29,7 +29,7 @@
         android:layout_marginTop="8dp"
         android:layout_toStartOf="@+id/company_profile_star_rating_rb"
         android:layout_toEndOf="@+id/company_profile_logo_iv"
-        android:text="@string/company_semicolon" />
+        android:text="Company: " />
 
     <TextView
         android:id="@+id/company_profile_org_number_tv"
@@ -39,7 +39,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/company_profile_logo_iv"
-        android:text="@string/organisation_number_semicolon" />
+        android:text="Org Nr: " />
 
     <CheckBox
         android:id="@+id/company_profile_clean_cb"
