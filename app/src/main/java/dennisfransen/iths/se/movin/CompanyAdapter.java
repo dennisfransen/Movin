@@ -1,23 +1,19 @@
 package dennisfransen.iths.se.movin;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
@@ -40,6 +36,8 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
         holder.companyAddress.setText(model.getCompany_address());
         holder.clean.setChecked(model.isCompany_cleaning_type());
         holder.move.setChecked(model.isCompany_moving_type());
+        holder.avgReviewScore.setRating(model.getReview_star_rating());
+
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +47,6 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
                 companyName = holder.companyName.getText().toString();
 
-                //Bundles information from adapter and so it can be sent to new Fragment
                 Bundle data = new Bundle();
 
                 data.putString("COMPANY_NAME", companyName);
@@ -110,6 +107,7 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
         private TextView companyName, companyAddress;
         private CheckBox clean, move;
         private FloatingActionButton call, addReview;
+        private RatingBar avgReviewScore;
 
         private CardView cardView;
 
@@ -124,6 +122,7 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
             move = itemView.findViewById(R.id.card_move_cb);
             call = itemView.findViewById(R.id.card_phone_fab);
             addReview = itemView.findViewById(R.id.card_add_review_fab);
+            avgReviewScore = itemView.findViewById(R.id.card_star_rating_rb);
 
             cardView = itemView.findViewById(R.id.company_cv);
 

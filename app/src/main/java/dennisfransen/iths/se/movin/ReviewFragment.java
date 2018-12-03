@@ -13,7 +13,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.firestore.Transaction;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +40,7 @@ public class ReviewFragment extends Fragment {
 
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        final String companyName = getArguments().getString("COMPANY_NAME");
+
 
         mReviewName = view.findViewById(R.id.review_username_et);
         mReviewText = view.findViewById(R.id.review_text_et);
@@ -55,6 +60,8 @@ public class ReviewFragment extends Fragment {
                 reviewMap.put("review_text", review_text);
                 reviewMap.put("review_star_rating", review_star_rating);
 
+                final String companyName = getArguments().getString("COMPANY_NAME");
+
                 firebaseFirestore.collection("company").document(companyName).
                         collection("review").document().set(reviewMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -68,9 +75,52 @@ public class ReviewFragment extends Fragment {
                         Toast.makeText(getActivity(), "Error: " + error, Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                DocumentReference doc = firebaseFirestore.collection("company").document(companyName);
+
+                addRating(doc, review_star_rating);
+
+
             }
         });
 
         return view;
+    }
+
+    private Task<Void> addRating(final DocumentReference reviewDocumentReference, final float rating) {
+        // Create reference for new rating, for use inside the transaction
+
+        final DocumentReference ratingRef = reviewDocumentReference.collection("review").document();
+
+        // In a transaction, add the new rating and update the aggregate totals
+        return firebaseFirestore.runTransaction(new Transaction.Function<Void>() {
+            @Override
+            public Void apply(Transaction transaction) throws FirebaseFirestoreException {
+
+
+                CompanyModel companyModel = transaction.get(reviewDocumentReference).toObject(CompanyModel.class);
+
+                // Compute new number of ratings
+                int newNumRatings = companyModel.review_number_of_reviews + 1;
+
+                // Compute new average rating
+                double oldRatingTotal = companyModel.review_star_rating * companyModel.review_number_of_reviews;
+                double newAvgRating = (oldRatingTotal + rating) / newNumRatings;
+
+                // Set new reviewModel info
+                companyModel.review_number_of_reviews = newNumRatings;
+                companyModel.review_star_rating = (float) newAvgRating;
+
+                // Update reviewModel
+                transaction.set(reviewDocumentReference, companyModel);
+
+                // Update rating
+                Map<String, Object> data = new HashMap<>();
+                data.put("rating", rating);
+                transaction.set(ratingRef, data, SetOptions.merge());
+
+                return null;
+            }
+        });
     }
 }

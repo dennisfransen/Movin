@@ -22,7 +22,6 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
 
         holder.reviewName.setText(model.getReview_name());
         holder.reviewText.setText(model.getReview_text());
-        holder.starRating.setRating(model.getReview_star_rating());
 
     }
 
@@ -37,14 +36,12 @@ public class ReviewAdapter extends FirestoreRecyclerAdapter<ReviewModel, ReviewA
     class ReviewHolder extends RecyclerView.ViewHolder {
 
         private TextView reviewName, reviewText;
-        RatingBar starRating;
 
         public ReviewHolder(@NonNull View itemView) {
             super(itemView);
 
             reviewName = itemView.findViewById(R.id.review_name_tv);
             reviewText = itemView.findViewById(R.id.review_text_tv);
-            starRating = itemView.findViewById(R.id.review_star_rating);
 
         }
     }

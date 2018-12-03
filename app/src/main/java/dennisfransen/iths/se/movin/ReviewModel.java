@@ -3,16 +3,15 @@ package dennisfransen.iths.se.movin;
 public class ReviewModel {
 
     private String review_name, review_text;
-    private float review_star_rating;
+
 
     public ReviewModel() {
 
     }
 
-    public ReviewModel(String review_name, String review_text, float review_star_rating) {
+    public ReviewModel(String review_name, String review_text) {
         this.review_name = review_name;
         this.review_text = review_text;
-        this.review_star_rating = review_star_rating;
     }
 
     public String getReview_name() {
@@ -23,7 +22,4 @@ public class ReviewModel {
         return review_text;
     }
 
-    public float getReview_star_rating() {
-        return review_star_rating;
-    }
 }
