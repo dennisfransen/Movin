@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.type.LatLng;
 
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -29,6 +31,7 @@ import java.util.regex.Pattern;
 import static android.app.Activity.RESULT_OK;
 
 public class AddCompanyFragment extends Fragment {
+
 
     public AddCompanyFragment() {
     }
@@ -137,8 +140,11 @@ public class AddCompanyFragment extends Fragment {
         return view;
     }
 
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
 
         if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE && resultCode == RESULT_OK) {
             Place place = PlaceAutocomplete.getPlace(getActivity(), data);
@@ -149,10 +155,17 @@ public class AddCompanyFragment extends Fragment {
                 mCompanyPhoneNumber.setText(place.getPhoneNumber());
                 mCompanyWebsite.setText(place.getWebsiteUri().toString());
 
-//                mCompanyOrgNumber.setText("");
-//                mCompanyOrgNumber.setHint("Org Number: ");
-//                mCompanyEmail.setText("");
-//                mCompanyEmail.setHint("Email Address: ");
+
+//                com.google.android.gms.maps.model.LatLng location = place.getLatLng();
+//                double latitute = location.latitude;
+//                double longitude = location.longitude;
+//
+//                Bundle longLatData = new Bundle();
+//                longLatData.putDouble("LATITUDE", latitute);
+//                longLatData.putDouble("LONGITUDE", longitude);
+//                setArguments(longLatData, companyPageFragment);
+
+                // TODO: Check if i can get data from lat and long. Add to "location FAB" in company page fragment.
 
             } else {
                 Toast.makeText(getActivity(), "Please select a company", Toast.LENGTH_SHORT).show();

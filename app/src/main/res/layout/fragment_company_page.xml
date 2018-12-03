@@ -27,9 +27,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_toStartOf="@+id/company_profile_star_rating_rb"
         android:layout_toEndOf="@+id/company_profile_logo_iv"
-        android:text="Company: " />
+        android:hint="Company: "
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/company_profile_org_number_tv"
@@ -38,6 +40,8 @@
         android:layout_below="@+id/company_profile_name_tv"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/company_profile_phone_fab"
         android:layout_toEndOf="@+id/company_profile_logo_iv"
         android:text="Org Nr: " />
 
@@ -67,10 +71,10 @@
         android:id="@+id/company_profile_add_review_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/company_profile_org_number_tv"
+        android:layout_below="@+id/company_profile_website_fab"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
         app:elevation="4dp"
@@ -81,10 +85,10 @@
         android:id="@+id/company_profile_phone_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/company_profile_org_number_tv"
+        android:layout_below="@+id/company_profile_name_tv"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_toStartOf="@+id/company_profile_add_review_fab"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
         android:focusable="true"
         app:elevation="4dp"
@@ -121,6 +125,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/company_profile_location_fab"
         android:text="Address: " />
 
     <TextView
@@ -131,6 +137,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/company_profile_add_review_fab"
         android:text="Email: " />
 
     <TextView
@@ -170,18 +178,36 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/company_profile_add_review_fab"
         android:text="Phone number: " />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/company_profile_website_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/company_profile_org_number_tv"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_toStartOf="@+id/company_profile_phone_fab"
+        android:layout_below="@+id/company_profile_phone_fab"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_web"
+        app:elevation="4dp"
+        app:fabSize="mini" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/company_profile_location_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/company_profile_add_review_fab"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_pin"
+        app:elevation="4dp"
         app:fabSize="mini" />
 
 

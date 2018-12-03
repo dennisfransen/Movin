@@ -34,7 +34,6 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
         holder.companyName.setText(model.getCompany_name());
         holder.companyAddress.setText(model.getCompany_address());
-//        holder.companyEmail.setText(model.getCompany_contact_email());
         holder.clean.setChecked(model.isCompany_cleaning_type());
         holder.move.setChecked(model.isCompany_moving_type());
         holder.avgReviewScore.setRating(model.getReview_star_rating());
@@ -111,7 +110,7 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
     class CompanyHolder extends RecyclerView.ViewHolder {
 
-        private TextView companyName, companyAddress; // companyEmail;
+        private TextView companyName, companyAddress;
         private CheckBox clean, move;
         private FloatingActionButton call, addReview, website;
         private RatingBar avgReviewScore;
@@ -125,7 +124,6 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
             companyName = itemView.findViewById(R.id.card_name_tv);
             companyAddress = itemView.findViewById(R.id.card_address_tv);
-//            companyEmail = itemView.findViewById(R.id.card_email_tv);
             clean = itemView.findViewById(R.id.card_clean_cb);
             move = itemView.findViewById(R.id.card_move_cb);
             call = itemView.findViewById(R.id.card_phone_fab);

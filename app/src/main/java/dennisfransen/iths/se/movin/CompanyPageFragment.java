@@ -19,6 +19,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.location.places.Place;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,8 +34,7 @@ public class CompanyPageFragment extends Fragment {
     private TextView mCompanyName, mCompanyOrgNumber, mCompanyEmail, mCompanyPhoneNumber, mCompanyAddress;
     private CheckBox mCompanyMove, mCompanyClean;
     private RatingBar mCompanyStarRating;
-    private FloatingActionButton mCompanyCall, mCompanyAddReview;
-    private FloatingActionButton mCompanyWebsite;
+    private FloatingActionButton mCompanyCall, mCompanyAddReview, mCompanyWebsite, mCompanyLocation; // Send user to location on googlemaps (Intent)
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private CollectionReference reviewRef;
@@ -42,6 +42,8 @@ public class CompanyPageFragment extends Fragment {
     private String companyWebsite;
 
     private ReviewAdapter reviewAdapter;
+
+    Place place;
 
 
     @Override
@@ -62,6 +64,7 @@ public class CompanyPageFragment extends Fragment {
 
         mCompanyStarRating = view.findViewById(R.id.company_profile_star_rating_rb);
 
+        mCompanyLocation = view.findViewById(R.id.company_profile_location_fab);
         mCompanyWebsite = view.findViewById(R.id.company_profile_website_fab);
         mCompanyCall = view.findViewById(R.id.company_profile_phone_fab);
         mCompanyAddReview = view.findViewById(R.id.company_profile_add_review_fab);
@@ -88,6 +91,15 @@ public class CompanyPageFragment extends Fragment {
 
                 if (documentSnapshot.getBoolean("company_cleaning_type").equals(true))
                     mCompanyClean.setChecked(true);
+
+            }
+        });
+
+        mCompanyLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:"));
 
             }
         });
