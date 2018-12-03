@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,12 +31,15 @@ public class CompanyPageFragment extends Fragment {
     }
 
     private TextView mCompanyName, mCompanyOrgNumber, mCompanyEmail, mCompanyPhoneNumber, mCompanyAddress;
-    private CheckBox mMove, mClean;
-    private RatingBar mStarRating;
-    private FloatingActionButton mCall, mAddReview;
+    private CheckBox mCompanyMove, mCompanyClean;
+    private RatingBar mCompanyStarRating;
+    private FloatingActionButton mCompanyCall, mCompanyAddReview;
+    private FloatingActionButton mCompanyWebsite;
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private CollectionReference reviewRef;
+
+    private String companyWebsite;
 
     private ReviewAdapter reviewAdapter;
 
@@ -46,21 +50,21 @@ public class CompanyPageFragment extends Fragment {
 
         final String companyName = getArguments().getString("COMPANY_NAME");
 
-        //region connect to xml
         mCompanyName = view.findViewById(R.id.company_profile_name_tv);
         mCompanyOrgNumber = view.findViewById(R.id.company_profile_org_number_tv);
         mCompanyEmail = view.findViewById(R.id.company_profile_email_tv);
         mCompanyPhoneNumber = view.findViewById(R.id.company_profile_phone_number_tv);
         mCompanyAddress = view.findViewById(R.id.company_profile_address_tv);
 
-        mMove = view.findViewById(R.id.company_profile_move_cb);
-        mClean = view.findViewById(R.id.company_profile_clean_cb);
 
-        mStarRating = view.findViewById(R.id.company_profile_star_rating_rb);
+        mCompanyMove = view.findViewById(R.id.company_profile_move_cb);
+        mCompanyClean = view.findViewById(R.id.company_profile_clean_cb);
 
-        mCall = view.findViewById(R.id.company_profile_phone_fab);
-        mAddReview = view.findViewById(R.id.company_profile_add_review_fab);
-        //endregion
+        mCompanyStarRating = view.findViewById(R.id.company_profile_star_rating_rb);
+
+        mCompanyWebsite = view.findViewById(R.id.company_profile_website_fab);
+        mCompanyCall = view.findViewById(R.id.company_profile_phone_fab);
+        mCompanyAddReview = view.findViewById(R.id.company_profile_add_review_fab);
 
         firebaseFirestore.collection("company").document(companyName).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -71,6 +75,7 @@ public class CompanyPageFragment extends Fragment {
                 String companyEmail = documentSnapshot.getString("company_contact_email");
                 String companyPhoneNumber = documentSnapshot.getString("company_contact_number");
                 String companyAddress = documentSnapshot.getString("company_address");
+                companyWebsite = documentSnapshot.getString("company_website");
 
                 mCompanyName.append(companyName);
                 mCompanyOrgNumber.append(companyOrgNumber);
@@ -79,15 +84,23 @@ public class CompanyPageFragment extends Fragment {
                 mCompanyAddress.append(companyAddress);
 
                 if (documentSnapshot.getBoolean("company_moving_type").equals(true))
-                    mMove.setChecked(true);
+                    mCompanyMove.setChecked(true);
 
                 if (documentSnapshot.getBoolean("company_cleaning_type").equals(true))
-                    mClean.setChecked(true);
+                    mCompanyClean.setChecked(true);
 
             }
         });
 
-        mCall.setOnClickListener(new View.OnClickListener() {
+        mCompanyWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(companyWebsite));
+                startActivity(intent);
+            }
+        });
+
+        mCompanyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -97,7 +110,7 @@ public class CompanyPageFragment extends Fragment {
             }
         });
 
-        mAddReview.setOnClickListener(new View.OnClickListener() {
+        mCompanyAddReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
