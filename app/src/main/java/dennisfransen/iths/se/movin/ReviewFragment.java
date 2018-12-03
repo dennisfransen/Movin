@@ -116,7 +116,7 @@ public class ReviewFragment extends Fragment {
 
                 // Update rating
                 Map<String, Object> data = new HashMap<>();
-                data.put("rating", rating);
+                data.put("review_star_rating", rating);
                 transaction.set(ratingRef, data, SetOptions.merge());
 
                 return null;

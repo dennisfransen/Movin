@@ -2,7 +2,7 @@ package dennisfransen.iths.se.movin;
 
 public class CompanyModel {
 
-    private String company_name, company_org_number, company_address, company_contact_number;
+    private String company_name, company_org_number, company_address, company_contact_number, company_contact_email;
     private boolean company_cleaning_type, company_moving_type;
     float review_star_rating;
     int review_number_of_reviews;
@@ -10,15 +10,20 @@ public class CompanyModel {
     public CompanyModel() {
     }
 
-    public CompanyModel(String company_name, String company_org_number, String company_address, String company_contact_number, boolean company_cleaning_type, boolean company_moving_type, float review_star_rating, int review_number_of_reviews) {
+    public CompanyModel(String company_name, String company_org_number, String company_address, String company_contact_number, String company_contact_email, boolean company_cleaning_type, boolean company_moving_type, float review_star_rating, int review_number_of_reviews) {
         this.company_name = company_name;
         this.company_org_number = company_org_number;
         this.company_address = company_address;
         this.company_contact_number = company_contact_number;
+        this.company_contact_email = company_contact_email;
         this.company_cleaning_type = company_cleaning_type;
         this.company_moving_type = company_moving_type;
         this.review_star_rating = review_star_rating;
         this.review_number_of_reviews = review_number_of_reviews;
+    }
+
+    public String getCompany_contact_email() {
+        return company_contact_email;
     }
 
     public float getReview_star_rating() {
