@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".AddCompanyFragment">
+
+        <Button
+            android:id="@+id/add_google_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_clean_cb"
+            android:layout_marginTop="24dp"
+            android:text="GOOGLE" />
+
+        <EditText
+            android:id="@+id/add_company_name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:focusableInTouchMode="false"
+            android:hint="Name: "
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/add_company_org_number_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_website_et"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Org Number: "
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/add_company_address_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_name_et"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Address: "
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/add_company_phone_number_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_org_number_et"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Phone Number: "
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/add_company_email_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_phone_number_et"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Email Address: "
+            android:inputType="textAutoComplete|textEmailAddress" />
+
+        <EditText
+            android:id="@+id/add_company_website_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_address_et"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:hint="Website: "
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/add_finish_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_google_btn"
+            android:layout_marginTop="13dp"
+            android:text="Finish" />
+
+        <CheckBox
+            android:id="@+id/add_company_clean_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_email_et"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="24dp"
+            android:text="Moving Service" />
+
+        <CheckBox
+            android:id="@+id/add_company_move_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/add_company_email_et"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_toEndOf="@+id/add_company_clean_cb"
+            android:text="Cleaning Service" />
+
+
+    </RelativeLayout>
+
+</ScrollView>
+

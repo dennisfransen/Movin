@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private AboutFragment aboutFragment;
     private SettingsFragment settingsFragment;
     private ProfileFragment profileFragment;
+    private AddCompanyFragment addCompanyFragment;
 
 
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         aboutFragment = new AboutFragment();
         settingsFragment = new SettingsFragment();
         searchFragment = new SearchFragment();
+        addCompanyFragment = new AddCompanyFragment();
 
         // Start with SearchFragment.
         profileFragment = new ProfileFragment();
@@ -63,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
                         setFragment(profileFragment);
                         break;
                     case R.id.map:
-                        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                        startActivity(intent);
+                        setFragment(addCompanyFragment);
+
+                        //Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                        //startActivity(intent);
                         break;
                 }
                 return true;

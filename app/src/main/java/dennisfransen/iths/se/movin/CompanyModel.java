@@ -2,12 +2,25 @@ package dennisfransen.iths.se.movin;
 
 public class CompanyModel {
 
-    private String company_name, company_org_number, company_address, company_contact_number, company_contact_email;
+    private String company_name, company_org_number, company_address, company_contact_number, company_contact_email, company_website;
     private boolean company_cleaning_type, company_moving_type;
     float review_star_rating;
     int review_number_of_reviews;
 
     public CompanyModel() {
+    }
+
+    public CompanyModel(String company_name, String company_org_number, String company_address, String company_contact_number, String company_contact_email, String company_website, boolean company_cleaning_type, boolean company_moving_type, float review_star_rating, int review_number_of_reviews) {
+        this.company_name = company_name;
+        this.company_org_number = company_org_number;
+        this.company_address = company_address;
+        this.company_contact_number = company_contact_number;
+        this.company_contact_email = company_contact_email;
+        this.company_website = company_website;
+        this.company_cleaning_type = company_cleaning_type;
+        this.company_moving_type = company_moving_type;
+        this.review_star_rating = review_star_rating;
+        this.review_number_of_reviews = review_number_of_reviews;
     }
 
     public CompanyModel(String company_name, String company_org_number, String company_address, String company_contact_number, String company_contact_email, boolean company_cleaning_type, boolean company_moving_type, float review_star_rating, int review_number_of_reviews) {
@@ -20,6 +33,10 @@ public class CompanyModel {
         this.company_moving_type = company_moving_type;
         this.review_star_rating = review_star_rating;
         this.review_number_of_reviews = review_number_of_reviews;
+    }
+
+    public String getCompany_website() {
+        return company_website;
     }
 
     public String getCompany_contact_email() {

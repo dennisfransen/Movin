@@ -62,15 +62,21 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
             }
         });
 
+        holder.website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String companyWebsite = model.getCompany_website();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(companyWebsite));
+                v.getContext().startActivity(intent);
+            }
+        });
+
         holder.call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String companyNumber = model.getCompany_contact_number();
-
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + companyNumber));
                 v.getContext().startActivity(intent);
-
             }
         });
 
@@ -107,7 +113,7 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
 
         private TextView companyName, companyAddress, companyEmail;
         private CheckBox clean, move;
-        private FloatingActionButton call, addReview;
+        private FloatingActionButton call, addReview, website;
         private RatingBar avgReviewScore;
 
         private CardView cardView;
@@ -124,6 +130,7 @@ public class CompanyAdapter extends FirestoreRecyclerAdapter<CompanyModel, Compa
             move = itemView.findViewById(R.id.card_move_cb);
             call = itemView.findViewById(R.id.card_phone_fab);
             addReview = itemView.findViewById(R.id.card_add_review_fab);
+            website = itemView.findViewById(R.id.card_website_fab);
             avgReviewScore = itemView.findViewById(R.id.card_star_rating_rb);
 
             cardView = itemView.findViewById(R.id.company_cv);

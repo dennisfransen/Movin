@@ -70,6 +70,20 @@
             android:text="@string/move" />
 
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/card_website_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_star_rating_rb"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@+id/card_phone_fab"
+            android:clickable="true"
+            android:focusable="true"
+            app:elevation="4dp"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/ic_web" />
+
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/card_add_review_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,6 +132,7 @@
             android:layout_marginTop="8dp"
             android:layout_toEndOf="@+id/card_logo_iv"
             android:text="Email: " />
+
 
     </RelativeLayout>
 
