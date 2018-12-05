@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@color/bottomNavAndToolbar"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         <TextView
             android:id="@+id/textView"
@@ -30,8 +31,8 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
             android:backgroundTint="@color/bottomNavAndToolbar"
-            app:srcCompat="@drawable/ic_settings"
-            android:contentDescription="@string/settings_button" />
+            android:contentDescription="@string/settings_button"
+            app:srcCompat="@drawable/ic_settings" />
 
         <ImageButton
             android:id="@+id/about_btn"
@@ -41,8 +42,9 @@
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
             android:backgroundTint="@color/bottomNavAndToolbar"
-            app:srcCompat="@drawable/ic_about"
-            android:contentDescription="@string/about_button" />
+            android:contentDescription="@string/about_button"
+            app:srcCompat="@drawable/ic_about" />
+
 
     </android.support.v7.widget.Toolbar>
 

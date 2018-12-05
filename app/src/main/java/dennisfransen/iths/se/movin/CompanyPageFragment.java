@@ -54,9 +54,9 @@ public class CompanyPageFragment extends Fragment {
 
         mCompanyName = view.findViewById(R.id.company_profile_name_tv);
         mCompanyOrgNumber = view.findViewById(R.id.company_profile_org_number_tv);
-        mCompanyEmail = view.findViewById(R.id.company_profile_email_tv);
-        mCompanyPhoneNumber = view.findViewById(R.id.company_profile_phone_number_tv);
-        mCompanyAddress = view.findViewById(R.id.company_profile_address_tv);
+//        mCompanyEmail = view.findViewById(R.id.company_profile_email_tv);
+//        mCompanyPhoneNumber = view.findViewById(R.id.company_profile_phone_number_tv);
+//        mCompanyAddress = view.findViewById(R.id.company_profile_address_tv);
 
 
         mCompanyMove = view.findViewById(R.id.company_profile_move_cb);
@@ -75,16 +75,16 @@ public class CompanyPageFragment extends Fragment {
 
                 String companyName = documentSnapshot.getString("company_name");
                 String companyOrgNumber = documentSnapshot.getString("company_org_number");
-                String companyEmail = documentSnapshot.getString("company_contact_email");
-                String companyPhoneNumber = documentSnapshot.getString("company_contact_number");
-                String companyAddress = documentSnapshot.getString("company_address");
+//                String companyEmail = documentSnapshot.getString("company_contact_email");
+//                String companyPhoneNumber = documentSnapshot.getString("company_contact_number");
+//                String companyAddress = documentSnapshot.getString("company_address");
                 companyWebsite = documentSnapshot.getString("company_website");
 
                 mCompanyName.append(companyName);
                 mCompanyOrgNumber.append(companyOrgNumber);
-                mCompanyEmail.append(companyEmail);
-                mCompanyPhoneNumber.append(companyPhoneNumber);
-                mCompanyAddress.append(companyAddress);
+//                mCompanyEmail.append(companyEmail);
+//                mCompanyPhoneNumber.append(companyPhoneNumber);
+//                mCompanyAddress.append(companyAddress);
 
                 if (documentSnapshot.getBoolean("company_moving_type").equals(true))
                     mCompanyMove.setChecked(true);

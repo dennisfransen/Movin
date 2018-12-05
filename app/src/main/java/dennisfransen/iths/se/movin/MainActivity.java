@@ -1,12 +1,14 @@
 package dennisfransen.iths.se.movin;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -20,12 +22,17 @@ public class MainActivity extends AppCompatActivity {
     private ProfileFragment profileFragment;
     private AddCompanyFragment addCompanyFragment;
 
+//    private DrawerLayout drawerLayout;
+//    private Toolbar toolbar;
+//    private ActionBarDrawerToggle actionBarDrawerToggle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        setUpToolbar();
 
         // Instance of all fragments that are supposed to be view in frame_container
         aboutFragment = new AboutFragment();
@@ -66,9 +73,6 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.map:
                         setFragment(addCompanyFragment);
-
-                        //Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                        //startActivity(intent);
                         break;
                 }
                 return true;
@@ -76,9 +80,19 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+//    public void setUpToolbar() {
+//        drawerLayout = findViewById(R.id.drawerLayout);
+//        toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.common_open_on_phone, R.string.common_open_on_phone);
+//        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+//        actionBarDrawerToggle.syncState();
+//    }
+
     public void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame_container, fragment);
         fragmentTransaction.commit();
     }
+
 }

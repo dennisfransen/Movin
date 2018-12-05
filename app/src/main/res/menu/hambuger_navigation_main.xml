@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/company_profile_page"
+            android:icon="@drawable/ic_add"
+            android:title="Profile" />
+        <item
+            android:id="@+id/company_profile_page1"
+            android:icon="@drawable/ic_add"
+            android:title="Profile" />
+        <item
+            android:id="@+id/company_profile_page2"
+            android:icon="@drawable/ic_add"
+            android:title="Profile" />
+        <item
+            android:id="@+id/company_profile_page3"
+            android:icon="@drawable/ic_add"
+            android:title="Profile" />
+        <item
+            android:id="@+id/company_profile_page4"
+            android:icon="@drawable/ic_add"
+            android:title="Profile" />
+    </group>
+
+    <item android:title="Communcicate">
+
+        <menu>
+            <item
+                android:id="@+id/company_profile_page5"
+                android:icon="@drawable/ic_add"
+                android:title="Profile" />
+
+            <item
+                android:id="@+id/company_profile_page6"
+                android:icon="@drawable/ic_add"
+                android:title="Profile" />
+
+        </menu>
+
+    </item>
+
+
+</menu>

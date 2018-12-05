@@ -41,7 +41,7 @@ public class AddCompanyFragment extends Fragment {
     static final int PLACE_AUTOCOMPLETE_REQUEST_CODE = 3;
 
     private EditText mCompanyName, mCompanyOrgNumber, mCompanyAddress, mCompanyPhoneNumber, mCompanyEmail, mCompanyWebsite;
-    private Button mGoogle, mFinish;
+    private Button mFinish;
     private CheckBox mCompanyCleaning, mCompanyMoving;
 
     private FirebaseFirestore firebaseFirestore;
@@ -65,14 +65,6 @@ public class AddCompanyFragment extends Fragment {
 
         mCompanyName = view.findViewById(R.id.add_company_name_et);
         mCompanyName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openGooglePlaces();
-            }
-        });
-
-        mGoogle = view.findViewById(R.id.add_google_btn);
-        mGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openGooglePlaces();
