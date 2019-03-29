@@ -1,5 +1,5 @@
 # Movin
-Projcet for school.
+My first individual project.
 
 Moving out from any office, apartment or house is a heavy lifting, time consuming thing.
 I've been looking around for several websites or services that could make this easier.
